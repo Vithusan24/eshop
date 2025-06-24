@@ -1,0 +1,11 @@
+/* Custom CSS for Vithusan Degitel Shopping */
+body {
+    scroll-behavior: smooth;
+}
+a:hover {
+    text-decoration: underline;
+}
+.product-card:hover {
+    transform: scale(1.02);
+    transition: 0.3s ease-in-out;
+}

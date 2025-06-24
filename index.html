@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vithusan Degitel Shopping</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+      <link href="assets/img/ecommerce.png" rel="icon">
+
+  <style>
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+    }
+    .modal-content img {
+      max-height: 300px;
+      margin: 0 auto;
+    }
+    .close-modal {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    /* Search Results Styles */
+    #no-results {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      color: #e53e3e;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 font-sans">
+  <!-- Navbar -->
+  <nav class="bg-white shadow sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center p-4">
+      <div class="flex items-center gap-3">
+        <img src="assets/img/logo1.png" alt="Logo" class="h-10 w-auto">
+        <span class="text-xl font-bold text-indigo-600">Vithusan Degitel Shopping</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <form class="hidden md:block" id="search-form">
+          <div class="flex">
+            <input type="text" id="search-input" placeholder="Search products..." aria-label="Search products" class="px-3 py-1 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            <button type="submit" class="bg-indigo-600 text-white px-3 py-1 rounded-r-md hover:bg-indigo-700">🔍</button>
+          </div>
+        </form>
+        <ul class="flex gap-4 text-gray-700 items-center">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="contact.html" >Contact</a></li>
+       
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="text-white py-32 text-center bg-cover bg-center" style="background-image: url('assets/img/bg-hero.jpeg');" data-aos="fade-up">
+    <h1 class="text-4xl font-bold">Welcome to Vithusan Degitel Shopping</h1>
+    <p class="mt-4 text-lg">Your one-stop shop for electronics, fashion, and more!</p>
+  </section>
+
+  <!-- Category Section -->
+  <section class="py-10">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-xl font-semibold">Categories</h2>
+        <div class="swiper-buttons flex gap-2">
+          <button class="category-carousel-prev bg-yellow-400 px-3 py-1 rounded text-white">❮</button>
+          <button class="category-carousel-next bg-yellow-400 px-3 py-1 rounded text-white">❯</button>
+        </div>
+      </div>
+      <div class="swiper category-swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide text-center">
+            <img src="assets/img/category-thumb-1.jpg" class="rounded-full mx-auto w-24 h-24" />
+            <p class="mt-2">Fruits & Veges</p>
+          </div>
+          <div class="swiper-slide text-center">
+            <img src="assets/img/category-thumb-2.jpg" class="rounded-full mx-auto w-24 h-24" />
+            <p class="mt-2">Breads & Sweets</p>
+          </div>
+          <div class="swiper-slide text-center">
+            <img src="assets/img/category-thumb-3.jpg" class="rounded-full mx-auto w-24 h-24" />
+            <p class="mt-2">Meat Products</p>
+          </div>
+          <div class="swiper-slide text-center">
+            <img src="assets/img/category-thumb-4.jpg" class="rounded-full mx-auto w-24 h-24" />
+            <p class="mt-2">Beverages</p>
+          </div>
+          <div class="swiper-slide text-center">
+            <img src="assets/img/category-thumb-5.jpg" class="rounded-full mx-auto w-24 h-24" />
+            <p class="mt-2">Electronics</p>
+          </div>
+          <div class="swiper-slide text-center">
+            <img src="assets/img/category-dress.png" class="rounded-full mx-auto w-24 h-24" />
+            <p class="mt-2">Clothing</p>
+          </div>
+          <div class="swiper-slide text-center">
+            <img src="assets/img/c.jpg" class="rounded-full mx-auto w-24 h-24" />
+            <p class="mt-2">Furniture</p>
+          </div>
+          <div class="swiper-slide text-center">
+            <img src="assets/img/category-toys.jpg" class="rounded-full mx-auto w-24 h-24" />
+            <p class="mt-2">Toys</p>
+          </div>
+          <div class="swiper-slide text-center">
+            <img src="assets/img/category-books.jpg" class="rounded-full mx-auto w-24 h-24" />
+            <p class="mt-2">Books</p>
+          </div>
+          <div class="swiper-slide text-center">
+            <img src="assets/img/category-beauty.jpg" class="rounded-full mx-auto w-24 h-24" />
+            <p class="mt-2">Beauty</p>
+          </div>
+          <div class="swiper-slide text-center">
+            <img src="assets/img/category-grocery.jpg" class="rounded-full mx-auto w-24 h-24" />
+            <p class="mt-2">Groceries</p>
+          </div>
+          <div class="swiper-slide text-center">
+            <img src="assets/img/category-home.jpg" class="rounded-full mx-auto w-24 h-24" />
+            <p class="mt-2">Home Essentials</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- No Results Message -->
+  <div id="no-results" class="container mx-auto px-4" aria-live="polite">No products found matching your search.</div>
+
+  <!-- Electronics Products -->
+  <section id="products" class="py-12 container mx-auto px-4 product-section">
+    <h2 class="text-2xl font-semibold mb-6 text-center">Electronics Products</h2>
+    <div class="grid md:grid-cols-3 gap-8" data-aos="fade-up">
+      <div class="bg-white shadow rounded-lg p-4 text-center hover:shadow-xl transition product-item">
+        <img src="assets/img/product1.jpg" alt="Smart Watch" class="h-48 mx-auto mb-4" />
+        <h3 class="font-semibold text-lg">Smart Watch</h3>
+        <p class="text-gray-600">Rs. 8,999</p>
+        <button class="view-product mt-2 inline-block bg-indigo-600 text-white px-4 py-2 rounded" data-product='{"id":"sw","name":"Smart Watch","price":"Rs. 8,999","image":"assets/img/product1.jpg","description":"A stylish smart watch with fitness tracking and notifications.","category":"Electronics"}'>View</button>
+      </div>
+      <div class="bg-white shadow rounded-lg p-4 text-center hover:shadow-xl transition product-item">
+        <img src="assets/img/product2.webp" alt="Bluetooth Speaker" class="h-48 mx-auto mb-4" />
+        <h3 class="font-semibold text-lg">Bluetooth Speaker</h3>
+        <p class="text-gray-600">Rs. 5,499</p>
+        <button class="view-product mt-2 inline-block bg-indigo-600 text-white px-4 py-2 rounded" data-product='{"id":"bs","name":"Bluetooth Speaker","price":"Rs. 5,499","image":"assets/img/product2.webp","description":"Portable speaker with high-quality sound and long battery life.","category":"Electronics"}'>View</button>
+      </div>
+      <div class="bg-white shadow rounded-lg p-4 text-center hover:shadow-xl transition product-item">
+        <img src="assets/img/product3.jpg" alt="Headphones" class="h-48 mx-auto mb-4" />
+        <h3 class="font-semibold text-lg">Headphones</h3>
+        <p class="text-gray-600">Rs. 4,200</p>
+        <button class="view-product mt-2 inline-block bg-indigo-600 text-white px-4 py-2 rounded" data-product='{"id":"hp","name":"Headphones","price":"Rs. 4,200","image":"assets/img/product3.jpg","description":"Noise-canceling headphones for immersive audio experience.","category":"Electronics"}'>View</button>
+      </div>
+      <div class="bg-white shadow rounded-lg p-4 text-center hover:shadow-xl transition product-item">
+        <img src="assets/img/product4.jpg" alt="JBL" class="h-48 mx-auto mb-4" />
+        <h3 class="font-semibold text-lg">JBL</h3>
+        <p class="text-gray-600">Rs. 49,999</p>
+        <button class="view-product mt-2 inline-block bg-indigo-600 text-white px-4 py-2 rounded" data-product='{"id":"jl","name":"JBL","price":"Rs. 49,999","image":"assets/img/product4.jpg","description":"Premium JBL audio system for superior sound quality.","category":"Electronics"}'>View</button>
+      </div>
+      <div class="bg-white shadow rounded-lg p-4 text-center hover:shadow-xl transition product-item">
+        <img src="assets/img/product5.jpg" alt="Fan" class="h-48 mx-auto mb-4" />
+        <h3 class="font-semibold text-lg">Fan</h3>
+        <p class="text-gray-600">Rs. 8,200</p>
+        <button class="view-product mt-2 inline-block bg-indigo-600 text-white px-4 py-2 rounded" data-product='{"id":"fan","name":"Fan","price":"Rs. 8,200","image":"assets/img/product5.jpg","description":"High-performance fan for efficient cooling.","category":"Electronics"}'>View</button>
+      </div>
+      <div class="bg-white shadow rounded-lg p-4 text-center hover:shadow-xl transition product-item">
+        <img src="assets/img/product6.jpg" alt="Television" class="h-48 mx-auto mb-4" />
+        <h3 class="font-semibold text-lg">Television</h3>
+        <p class="text-gray-600">Rs. 42,200</p>
+        <button class="view-product mt-2 inline-block bg-indigo-600 text-white px-4 py-2 rounded" data-product='{"id":"tv","name":"Television","price":"Rs. 42,200","image":"assets/img/product6.jpg","description":"Smart TV with 4K resolution and streaming capabilities.","category":"Electronics"}'>View</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Breads & Sweets Products -->
+  <section class="py-12 container mx-auto px-4 product-section">
+    <h2 class="text-2xl font-semibold mb-6 text-center">Breads & Sweets Products</h2>
+    <div class="grid md:grid-cols-3 gap-8" data-aos="fade-up">
+      <div class="bg-white shadow rounded-lg p-4 text-center hover:shadow-xl transition product-item">
+        <img src="assets/img/b1.jpg" alt="Egg Bun" class="h-48 mx-auto mb-4" />
+        <h3 class="font-semibold text-lg">Egg Bun</h3>
+        <p class="text-gray-600">Rs. 99</p>
+        <button class="view-product mt-2 inline-block bg-indigo-600 text-white px-4 py-2 rounded" data-product='{"id":"eb","name":"Egg Bun","price":"Rs. 99","image":"assets/img/b1.jpg","description":"Freshly baked egg bun, perfect for breakfast.","category":"Breads & Sweets"}'>View</button>
+      </div>
+      <div class="bg-white shadow rounded-lg p-4 text-center hover:shadow-xl transition product-item">
+        <img src="assets/img/b2.jpg" alt="Choco" class="h-48 mx-auto mb-4" />
+        <h3 class="font-semibold text-lg">Choco</h3>
+        <p class="text-gray-600">Rs. 409</p>
+        <button class="view-product mt-2 inline-block bg-indigo-600 text-white px-4 py-2 rounded" data-product='{"id":"ch","name":"Choco","price":"Rs. 409","image":"assets/img/b2.jpg","description":"Rich chocolate dessert for sweet lovers.","category":"Breads & Sweets"}'>View</button>
+      </div>
+      <div class="bg-white shadow rounded-lg p-4 text-center hover:shadow-xl transition product-item">
+        <img src="assets/img/b3.jpg" alt="Orea" class="h-48 mx-auto mb-4" />
+        <h3 class="font-semibold text-lg">Orea</h3>
+        <p class="text-gray-600">Rs. 500</p>
+        <button class="view-product mt-2 inline-block bg-indigo-600 text-white px-4 py-2 rounded" data-product='{"id":"or","name":"Orea","price":"Rs. 500","image":"assets/img/b3.jpg","description":"Delicious Oreo-inspired treat.","category":"Breads & Sweets"}'>View</button>
+      </div>
+      <div class="bg-white shadow rounded-lg p-4 text-center hover:shadow-xl transition product-item">
+        <img src="assets/img/b4.jpg" alt="Tigary" class="h-48 mx-auto mb-4" />
+        <h3 class="font-semibold text-lg">Tigary</h3>
+        <p class="text-gray-600">Rs. 420</p>
+        <button class="view-product mt-2 inline-block bg-indigo-600 text-white px-4 py-2 rounded" data-product='{"id":"ti","name":"Tigary","price":"Rs. 420","image":"assets/img/b4.jpg","description":"Unique sweet with a crunchy texture.","category":"Breads & Sweets"}'>View</button>
+      </div>
+      <div class="bg-white shadow rounded-lg p-4 text-center hover:shadow-xl transition product-item">
+        <img src="assets/img/b5.jpg" alt="Bulillo" class="h-48 mx-auto mb-4" />
+        <h3 class="font-semibold text-lg">Bulillo</h3>
+        <p class="text-gray-600">Rs. 4,200</p>
+        <button class="view-product mt-2 inline-block bg-indigo-600 text-white px-4 py-2 rounded" data-product='{"id":"bu","name":"Bulillo","price":"Rs. 4,200","image":"assets/img/b5.jpg","description":"Premium sweet delicacy.","category":"Breads & Sweets"}'>View</button>
+      </div>
+      <div class="bg-white shadow rounded-lg p-4 text-center hover:shadow-xl transition product-item">
+        <img src="assets/img/b6.jpg" alt="Panadeo" class="h-48 mx-auto mb-4" />
+        <h3 class="font-semibold text-lg">Panadeo</h3>
+        <p class="text-gray-600">Rs. 4,200</p>
+        <button class="view-product mt-2 inline-block bg-indigo-600 text-white px-4 py-2 rounded" data-product='{"id":"pa","name":"Panadeo","price":"Rs. 4,200","image":"assets/img/b6.jpg","description":"Traditional sweet with rich flavors.","category":"Breads & Sweets"}'>View</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Meat Products -->
+  <section class="py-12 container mx-auto px-4 product-section">
+    <h2 class="text-2xl font-semibold mb-6 text-center">Meat Products</h2>
+    <div class="grid md:grid-cols-3 gap-8" data-aos="fade-up">
+      <div class="bg-white shadow rounded-lg p-4 text-center hover:shadow-xl transition product-item">
+        <img src="assets/img/m1.jpg" alt="Meat" class="h-48 mx-auto mb-4" />
+        <h3 class="font-semibold text-lg">Meat</h3>
+        <p class="text-gray-600">Rs. 99</p>
+        <button class="view-product mt-2 inline-block bg-indigo-600 text-white px-4 py-2 rounded" data-product='{"id":"m1","name":"Meat","price":"Rs. 99","image":"assets/img/m1.jpg","description":"Freshly sourced meat for your meals.","category":"Meat Products"}'>View</button>
+      </div>
+      <div class="bg-white shadow rounded-lg p-4 text-center hover:shadow-xl transition product-item">
+        <img src="assets/img/m3.jpg" alt="Meat" class="h-48 mx-auto mb-4" />
+        <h3 class="font-semibold text-lg">Meat</h3>
+        <p class="text-gray-600">Rs. 409</p>
+        <button class="view-product mt-2 inline-block bg-indigo-600 text-white px-4 py-2 rounded" data-product='{"id":"m3","name":"Meat","price":"Rs. 409","image":"assets/img/m3.jpg","description":"High-quality meat cuts.","category":"Meat Products"}'>View</button>
+      </div>
+      <div class="bg-white shadow rounded-lg p-4 text-center hover:shadow-xl transition product-item">
+        <img src="assets/img/m2.jpg" alt="Meat" class="h-48 mx-auto mb-4" />
+        <h3 class="font-semibold text-lg">Meat</h3>
+        <p class="text-gray-600">Rs. 500</p>
+        <button class="view-product mt-2 inline-block bg-indigo-600 text-white px-4 py-2 rounded" data-product='{"id":"m2","name":"Meat","price":"Rs. 500","image":"assets/img/m2.jpg","description":"Premium meat for grilling.","category":"Meat Products"}'>View</button>
+      </div>
+      <div class="bg-white shadow rounded-lg p-4 text-center hover:shadow-xl transition product-item">
+        <img src="assets/img/m4.jpg" alt="Meat" class="h-48 mx-auto mb-4" />
+        <h3 class="font-semibold text-lg">Meat</h3>
+        <p class="text-gray-600">Rs. 420</p>
+        <button class="view-product mt-2 inline-block bg-indigo-600 text-white px-4 py-2 rounded" data-product='{"id":"m4","name":"Meat","price":"Rs. 420","image":"assets/img/m4.jpg","description":"Fresh meat for versatile cooking.","category":"Meat Products"}'>View</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clothing Products -->
+  <section class="py-12 container mx-auto px-4 product-section">
+    <h2 class="text-2xl font-semibold mb-6 text-center">Clothing</h2>
+    <div class="grid md:grid-cols-3 gap-8" data-aos="fade-up">
+      <div class="bg-white shadow rounded-lg p-4 text-center hover:shadow-xl transition product-item">
+        <img src="assets/img/s1.jpg" alt="Shorts" class="h-48 mx-auto mb-4" />
+        <h3 class="font-semibold text-lg">Shorts</h3>
+        <p class="text-gray-600">Rs. 999</p>
+        <button class="view-product mt-2 inline-block bg-indigo-600 text-white px-4 py-2 rounded" data-product='{"id":"s1","name":"Shorts","price":"Rs. 999","image":"assets/img/s1.jpg","description":"Comfortable casual shorts for everyday wear.","category":"Clothing"}'>View</button>
+      </div>
+      <div class="bg-white shadow rounded-lg p-4 text-center hover:shadow-xl transition product-item">
+        <img src="assets/img/s2.jpg" alt="T-Shirt" class="h-48 mx-auto mb-4" />
+        <h3 class="font-semibold text-lg">T-Shirt</h3>
+        <p class="text-gray-600">Rs. 599</p>
+        <button class="view-product mt-2 inline-block bg-indigo-600 text-white px-4 py-2 rounded" data-product='{"id":"s2","name":"T-Shirt","price":"Rs. 599","image":"assets/img/s2.jpg","description":"Stylish and breathable T-shirt.","category":"Clothing"}'>View</button>
+      </div>
+      <div class="bg-white shadow rounded-lg p-4 text-center hover:shadow-xl transition product-item">
+        <img src="assets/img/s3.jpg" alt="Shirt" class="h-48 mx-auto mb-4" />
+        <h3 class="font-semibold text-lg">Shirt</h3>
+        <p class="text-gray-600">Rs. 200</p>
+        <button class="view-product mt-2 inline-block bg-indigo-600 text-white px-4 py-2 rounded" data-product='{"id":"s3","name":"Shirt","price":"Rs. 200","image":"assets/img/s3.jpg","description":"Classic shirt for formal and casual occasions.","category":"Clothing"}'>View</button>
+      </div>
+      <div class="bg-white shadow rounded-lg p-4 text-center hover:shadow-xl transition product-item">
+        <img src="assets/img/s4.webp" alt="Saree" class="h-48 mx-auto mb-4" />
+        <h3 class="font-semibold text-lg">Saree</h3>
+        <p class="text-gray-600">Rs. 420</p>
+        <button class="view-product mt-2 inline-block bg-indigo-600 text-white px-4 py-2 rounded" data-product='{"id":"s4","name":"Saree","price":"Rs. 420","image":"assets/img/s4.webp","description":"Elegant saree for special occasions.","category":"Clothing"}'>View</button>
+      </div>
+      <div class="bg-white shadow rounded-lg p-4 text-center hover:shadow-xl transition product-item">
+        <img src="assets/img/s5.webp" alt="Shorts" class="h-48 mx-auto mb-4" />
+        <h3 class="font-semibold text-lg">Shorts</h3>
+        <p class="text-gray-600">Rs. 400</p>
+        <button class="view-product mt-2 inline-block bg-indigo-600 text-white px-4 py-2 rounded" data-product='{"id":"s5","name":"Shorts","price":"Rs. 400","image":"assets/img/s5.webp","description":"Lightweight shorts for active lifestyles.","category":"Clothing"}'>View</button>
+      </div>
+      <div class="bg-white shadow rounded-lg p-4 text-center hover:shadow-xl transition product-item">
+        <img src="assets/img/s6.jpg" alt="Jeans" class="h-48 mx-auto mb-4" />
+        <h3 class="font-semibold text-lg">Jeans</h3>
+        <p class="text-gray-600">Rs. 200</p>
+        <button class="view-product mt-2 inline-block bg-indigo-600 text-white px-4 py-2 rounded" data-product='{"id":"s6","name":"Jeans","price":"Rs. 200","image":"assets/img/s6.jpg","description":"Durable and stylish jeans.","category":"Clothing"}'>View</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fruits & Veges Products -->
+  <section class="py-12 container mx-auto px-4 product-section">
+    <h2 class="text-2xl font-semibold mb-6 text-center">Fruits & Veges</h2>
+    <div class="grid md:grid-cols-3 gap-8" data-aos="fade-up">
+      <div class="bg-white shadow rounded-lg p-4 text-center hover:shadow-xl transition product-item">
+        <img src="assets/img/f1.jpg" alt="Cucumber" class="h-48 mx-auto mb-4" />
+        <h3 class="font-semibold text-lg">Cucumber</h3>
+        <p class="text-gray-600">Rs. 999</p>
+        <button class="view-product mt-2 inline-block bg-indigo-600 text-white px-4 py-2 rounded" data-product='{"id":"f1","name":"Cucumber","price":"Rs. 999","image":"assets/img/f1.jpg","description":"Fresh and crisp cucumbers.","category":"Fruits & Veges"}'>View</button>
+      </div>
+      <div class="bg-white shadow rounded-lg p-4 text-center hover:shadow-xl transition product-item">
+        <img src="assets/img/f2.jpg" alt="Mix Fruit" class="h-48 mx-auto mb-4" />
+        <h3 class="font-semibold text-lg">Mix Fruit</h3>
+        <p class="text-gray-600">Rs. 599</p>
+        <button class="view-product mt-2 inline-block bg-indigo-600 text-white px-4 py-2 rounded" data-product='{"id":"f2","name":"Mix Fruit","price":"Rs. 599","image":"assets/img/f2.jpg","description":"Assorted fresh fruits for a healthy snack.","category":"Fruits & Veges"}'>View</button>
+      </div>
+      <div class="bg-white shadow rounded-lg p-4 text-center hover:shadow-xl transition product-item">
+        <img src="assets/img/f3.jpg" alt="Eggplant" class="h-48 mx-auto mb-4" />
+        <h3 class="font-semibold text-lg">Eggplant</h3>
+        <p class="text-gray-600">Rs. 200</p>
+        <button class="view-product mt-2 inline-block bg-indigo-600 text-white px-4 py-2 rounded" data-product='{"id":"f3","name":"Eggplant","price":"Rs. 200","image":"assets/img/f3.jpg","description":"Fresh eggplants for cooking.","category":"Fruits & Veges"}'>View</button>
+      </div>
+      <div class="bg-white shadow rounded-lg p-4 text-center hover:shadow-xl transition product-item">
+        <img src="assets/img/f1.jpg" alt="Carrot" class="h-48 mx-auto mb-4" />
+        <h3 class="font-semibold text-lg">Carrot</h3>
+        <p class="text-gray-600">Rs. 420</p>
+        <button class="view-product mt-2 inline-block bg-indigo-600 text-white px-4 py-2 rounded" data-product='{"id":"f4","name":"Carrot","price":"Rs. 420","image":"assets/img/f1.jpg","description":"Crisp and fresh carrots.","category":"Fruits & Veges"}'>View</button>
+      </div>
+      <div class="bg-white shadow rounded-lg p-4 text-center hover:shadow-xl transition product-item">
+        <img src="assets/img/f2.jpg" alt="Beetroot" class="h-48 mx-auto mb-4" />
+        <h3 class="font-semibold text-lg">Beetroot</h3>
+        <p class="text-gray-600">Rs. 400</p>
+        <button class="view-product mt-2 inline-block bg-indigo-600 text-white px-4 py-2 rounded" data-product='{"id":"f5","name":"Beetroot","price":"Rs. 400","image":"assets/img/f2.jpg","description":"Nutritious beetroots for salads and dishes.","category":"Fruits & Veges"}'>View</button>
+      </div>
+      <div class="bg-white shadow rounded-lg p-4 text-center hover:shadow-xl transition product-item">
+        <img src="assets/img/f3.jpg" alt="Potato" class="h-48 mx-auto mb-4" />
+        <h3 class="font-semibold text-lg">Potato</h3>
+        <p class="text-gray-600">Rs. 200</p>
+        <button class="view-product mt-2 inline-block bg-indigo-600 text-white px-4 py-2 rounded" data-product='{"id":"f6","name":"Potato","price":"Rs. 200","image":"assets/img/f3.jpg","description":"Versatile potatoes for cooking.","category":"Fruits & Veges"}'>View</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Furniture Products -->
+  <section class="py-12 container mx-auto px-4 product-section">
+    <h2 class="text-2xl font-semibold mb-6 text-center">Furniture</h2>
+    <div class="grid md:grid-cols-3 gap-8" data-aos="fade-up">
+      <div class="bg-white shadow rounded-lg p-4 text-center hover:shadow-xl transition product-item">
+        <img src="assets/img/c1.jpg" alt="Table" class="h-48 mx-auto mb-4" />
+        <h3 class="font-semibold text-lg">Table</h3>
+        <p class="text-gray-600">Rs. 4999</p>
+        <button class="view-product mt-2 inline-block bg-indigo-600 text-white px-4 py-2 rounded" data-product='{"id":"c1","name":"Table","price":"Rs. 4999","image":"assets/img/c1.jpg","description":"Sturdy wooden table for home or office.","category":"Furniture"}'>View</button>
+      </div>
+      <div class="bg-white shadow rounded-lg p-4 text-center hover:shadow-xl transition product-item">
+        <img src="assets/img/c2.jpg" alt="Chair" class="h-48 mx-auto mb-4" />
+        <h3 class="font-semibold text-lg">Chair</h3>
+        <p class="text-gray-600">Rs. 5599</p>
+        <button class="view-product mt-2 inline-block bg-indigo-600 text-white px-4 py-2 rounded" data-product='{"id":"c2","name":"Chair","price":"Rs. 5599","image":"assets/img/c2.jpg","description":"Comfortable chair with modern design.","category":"Furniture"}'>View</button>
+      </div>
+      <div class="bg-white shadow rounded-lg p-4 text-center hover:shadow-xl transition product-item">
+        <img src="assets/img/c4.jpg" alt="Cabinet" class="h-48 mx-auto mb-4" />
+        <h3 class="font-semibold text-lg">Cabinet</h3>
+        <p class="text-gray-600">Rs. 6200</p>
+        <button class="view-product mt-2 inline-block bg-indigo-600 text-white px-4 py-2 rounded" data-product='{"id":"c4","name":"Cabinet","price":"Rs. 6200","image":"assets/img/c4.jpg","description":"Spacious cabinet for storage needs.","category":"Furniture"}'>View</button>
+      </div>
+      <div class="bg-white shadow rounded-lg p-4 text-center hover:shadow-xl transition product-item">
+        <img src="assets/img/c6.jpg" alt="Wooden Furniture" class="h-48 mx-auto mb-4" />
+        <h3 class="font-semibold text-lg">Wooden Furniture</h3>
+        <p class="text-gray-600">Rs. 7420</p>
+        <button class="view-product mt-2 inline-block bg-indigo-600 text-white px-4 py-2 rounded" data-product='{"id":"c6","name":"Wooden Furniture","price":"Rs. 7420","image":"assets/img/c6.jpg","description":"Elegant wooden furniture piece.","category":"Furniture"}'>View</button>
+      </div>
+      <div class="bg-white shadow rounded-lg p-4 text-center hover:shadow-xl transition product-item">
+        <img src="assets/img/c5.jpg" alt="Wardrobe" class="h-48 mx-auto mb-4" />
+        <h3 class="font-semibold text-lg">Wardrobe</h3>
+        <p class="text-gray-600">Rs. 8400</p>
+        <button class="view-product mt-2 inline-block bg-indigo-600 text-white px-4 py-2 rounded" data-product='{"id":"c5","name":"Wardrobe","price":"Rs. 8400","image":"assets/img/c5.jpg","description":"Large wardrobe for clothing storage.","category":"Furniture"}'>View</button>
+      </div>
+      <div class="bg-white shadow rounded-lg p-4 text-center hover:shadow-xl transition product-item">
+        <img src="assets/img/s7.jpg" alt="Sofa" class="h-48 mx-auto mb-4" />
+        <h3 class="font-semibold text-lg">Sofa</h3>
+        <p class="text-gray-600">Rs. 9200</p>
+        <button class="view-product mt-2 inline-block bg-indigo-600 text-white px-4 py-2 rounded" data-product='{"id":"s7","name":"Sofa","price":"Rs. 9200","image":"assets/img/s7.jpg","description":"Cozy sofa for your living room.","category":"Furniture"}'>View</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="bg-white py-12">
+    <h2 class="text-2xl text-center font-bold mb-6">What Our Customers Say</h2>
+    <div class="flex gap-6 overflow-x-auto px-6" data-aos="fade-left">
+      <div class="min-w-[250px] bg-gray-100 p-4 rounded">
+        <p>⭐️⭐️⭐️⭐️⭐️</p>
+        <p>"Great quality and fast delivery!"</p>
+        <small>- Jeyanth</small>
+      </div>
+      <div class="min-w-[250px] bg-gray-100 p-4 rounded">
+        <p>⭐️⭐️⭐️⭐️⭐️</p>
+        <p>"Best e-shop in the region!"</p>
+        <small>- Kavitha</small>
+      </div>
+      <div class="min-w-[250px] bg-gray-100 p-4 rounded">
+        <p>⭐️⭐️⭐️⭐️⭐️</p>
+        <p>"Good Manage"</p>
+        <small>- Reginy</small>
+      </div>
+      <div class="min-w-[250px] bg-gray-100 p-4 rounded">
+        <p>⭐️⭐️⭐️⭐️⭐️</p>
+        <p>"Good"</p>
+        <small>- Karthi</small>
+      </div>
+      <div class="min-w-[250px] bg-gray-100 p-4 rounded">
+        <p>⭐️⭐️⭐️⭐️⭐️</p>
+        <p>"Best e-shop in the region!"</p>
+        <small>- Kavitha</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white pt-10 pb-6 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <img src="assets/img/logo1.png" alt="Vithusan Degitel Shopping" class="w-28 mb-4">
+          <h2 class="text-lg font-bold">Vithusan Degitel Shopping</h2>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Who We Are</h3>
+          <p class="text-gray-400 text-sm">Degitel Shopping is a digital platform created to provide customers with fast, reliable access to electronics, groceries, fashion, and daily needs — all in one place.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Why Choose Us</h3>
+          <ul class="text-sm text-gray-300 space-y-2">
+            <li>✔️ Trusted local store</li>
+            <li>✔️ Island-wide delivery</li>
+            <li>✔️ Secure payment</li>
+            <li>✔️ 24/7 customer support</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+          <p class="text-sm text-gray-400">📍 Jaffna, Sri Lanka</p>
+          <p class="text-sm text-gray-400">📞 +94 77 123 4567</p>
+          <p class="text-sm text-gray-400">✉️ support@degitelshop.com</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Copyright -->
+  <div class="bg-gray-800 text-center text-gray-400 py-3 text-sm">
+    © 2025 Vithusan Degitel Shopping. All rights reserved. Design by WEBbuilders.lk
+  </div>
+
+  <!-- Back to Top -->
+  <button onclick="scrollToTop()" class="fixed bottom-6 right-6 bg-indigo-600 text-white p-3 rounded-full shadow-lg">↑</button>
+
+  <!-- Modal Structure -->
+  <div id="product-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">×</span>
+      <img id="modal-image" src="" alt="Product" class="h-48 mx-auto mb-4" />
+      <h3 id="modal-name" class="font-semibold text-lg"></h3>
+      <p id="modal-price" class="text-gray-600"></p>
+      <p id="modal-description" class="text-gray-600 mt-2"></p>
+      <div class="flex justify-center gap-4 mt-4">
+        <a href="tel:+94767875639" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Call Us</a>
+        <a href="https://wa.me/94767875639" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Message Us</a>
+      </div>
+    </div>
+  </div>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script>
+    // Swiper Initialization
+    const categorySwiper = new Swiper('.category-swiper', {
+      slidesPerView: 5,
+      spaceBetween: 20,
+      navigation: {
+        nextEl: '.category-carousel-next',
+        prevEl: '.category-carousel-prev',
+      },
+      breakpoints: {
+        640: { slidesPerView: 3 },
+        768: { slidesPerView: 4 },
+        1024: { slidesPerView: 5 },
+        1280: { slidesPerView: 6 },
+      }
+    });
+
+    // Scroll to Top
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Modal Functionality - Fixed
+    const modal = document.getElementById('product-modal');
+    const modalImage = document.getElementById('modal-image');
+    const modalName = document.getElementById('modal-name');
+    const modalPrice = document.getElementById('modal-price');
+    const modalDescription = document.getElementById('modal-description');
+    const closeModal = document.querySelector('.close-modal');
+
+    document.addEventListener('click', function(e) {
+      if (e.target.classList.contains('view-product')) {
+        const product = JSON.parse(e.target.getAttribute('data-product'));
+        modalImage.src = product.image;
+        modalImage.alt = product.name;
+        modalName.textContent = product.name;
+        modalPrice.textContent = product.price;
+        modalDescription.textContent = product.description;
+        modal.style.display = 'flex';
+      }
+    });
+
+    closeModal.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+
+    // Search Functionality - Fixed
+    const searchInput = document.getElementById('search-input');
+    const searchForm = document.getElementById('search-form');
+    const productItems = document.querySelectorAll('.product-item');
+    const noResults = document.getElementById('no-results');
+    const productSections = document.querySelectorAll('.product-section');
+
+    function performSearch() {
+      const query = searchInput.value.trim().toLowerCase();
+      let hasResults = false;
+
+      if (query === '') {
+        // Show all products when search is empty
+        productItems.forEach(item => item.style.display = 'block');
+        productSections.forEach(section => section.style.display = 'block');
+        noResults.style.display = 'none';
+        return;
+      }
+
+      productSections.forEach(section => {
+        let sectionHasVisibleItems = false;
+        const items = section.querySelectorAll('.product-item');
+
+        items.forEach(item => {
+          const productData = JSON.parse(item.querySelector('.view-product').getAttribute('data-product'));
+          const productName = productData.name.toLowerCase();
+          const productDescription = productData.description.toLowerCase();
+          const productCategory = productData.category.toLowerCase();
+
+          if (productName.includes(query) || 
+              productDescription.includes(query) || 
+              productCategory.includes(query)) {
+            item.style.display = 'block';
+            sectionHasVisibleItems = true;
+            hasResults = true;
+          } else {
+            item.style.display = 'none';
+          }
+        });
+
+        // Show/hide entire section based on visible items
+        section.style.display = sectionHasVisibleItems ? 'block' : 'none';
+      });
+
+      noResults.style.display = hasResults ? 'none' : 'block';
+    }
+
+    // Debounce function to limit how often search is performed
+    function debounce(func, wait) {
+      let timeout;
+      return function() {
+        const context = this;
+        const args = arguments;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+          func.apply(context, args);
+        }, wait);
+      };
+    }
+
+    const debouncedSearch = debounce(performSearch, 300);
+
+    searchInput.addEventListener('input', debouncedSearch);
+    searchForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      performSearch();
+    });
+  </script>
+</body>
+</html>

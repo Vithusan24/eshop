@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Vithusan Degitel Shopping</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+  <style>
+    /* Mobile Search Toggle */
+    #search-toggle {
+      display: none;
+    }
+    @media (max-width: 767px) {
+      #search-toggle {
+        display: block;
+        cursor: pointer;
+      }
+      #search-form {
+        display: none;
+        width: 100%;
+        margin-top: 1rem;
+      }
+      #search-form.active {
+        display: block;
+      }
+    }
+    /* Form Error */
+    .error {
+      border-color: #e53e3e;
+    }
+    .error-message {
+      color: #e53e3e;
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 font-sans">
+  <!-- Navbar -->
+  <nav class="bg-white shadow sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center p-4">
+      <div class="flex items-center gap-3">
+        <img src="assets/img/logo1.png" alt="Vithusan Degitel Shopping Logo" class="h-10 w-auto">
+        <span class="text-xl font-bold text-indigo-600">Vithusan Degitel Shopping</span>
+      </div>
+      <div class="flex items-center gap-6">
+      
+        <ul class="flex gap-4 text-gray-700 items-center">
+          <li><a href="index.html" aria-label="Navigate to home page">Home</a></li>
+          <li><a href="index.html#products" id="shop-link" aria-label="Navigate to shop section">Shop</a></li>
+          </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contact Section -->
+  <section class="container mx-auto px-4 py-10">
+    <h1 class="text-3xl font-bold mb-6 text-center">Contact Us</h1>
+    <div class="max-w-lg mx-auto">
+      <form id="contact-form" class="bg-white p-6 rounded shadow-md space-y-4" novalidate>
+        <div>
+          <label for="name" class="block text-sm font-medium text-gray-700">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Your Name" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-indigo-500" required aria-describedby="name-error">
+          <p id="name-error" class="error-message hidden">Please enter your name.</p>
+        </div>
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-700">Your Email</label>
+          <input type="email" id="email" name="email" placeholder="Your Email" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-indigo-500" required aria-describedby="email-error">
+          <p id="email-error" class="error-message hidden">Please enter a valid email address.</p>
+        </div>
+        <div>
+          <label for="message" class="block text-sm font-medium text-gray-700">Your Message</label>
+          <textarea id="message" name="message" placeholder="Your Message" rows="5" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-indigo-500" required aria-describedby="message-error"></textarea>
+          <p id="message-error" class="error-message hidden">Please enter your message.</p>
+        </div>
+        <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 w-full">Send Message</button>
+      </form>
+      <div class="mt-8 text-center">
+        <h2 class="text-lg font-semibold mb-4">Other Ways to Reach Us</h2>
+        <p class="text-gray-600">📍 Jaffna, Sri Lanka</p>
+        <p class="text-gray-600">📞 <a href="tel:+94771234567" class="text-indigo-600 hover:underline" aria-label="Call us">+94 77 123 4567</a></p>
+        <p class="text-gray-600">✉️ <a href="mailto:support@degitelshop.com" class="text-indigo-600 hover:underline" aria-label="Email us">support@degitelshop.com</a></p>
+        <p class="text-gray-600">💬 <a href="https://wa.me/94767875639" class="text-indigo-600 hover:underline" aria-label="Message us on WhatsApp">Message us on WhatsApp</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white pt-10 pb-6 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <img src="assets/img/logo1.png" alt="Vithusan Degitel Shopping" class="w-28 mb-4">
+          <h2 class="text-lg font-bold">Vithusan Degitel Shopping</h2>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Who We Are</h3>
+          <p class="text-gray-400 text-sm">Degitel Shopping is a digital platform created to provide customers with fast, reliable access to electronics, groceries, fashion, and daily needs — all in one place.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Why Choose Us</h3>
+          <ul class="text-sm text-gray-300 space-y-2">
+            <li>✔️ Trusted local store</li>
+            <li>✔️ Island-wide delivery</li>
+            <li>✔️ Secure payment</li>
+            <li>✔️ 24/7 customer support</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+          <p class="text-sm text-gray-400">📍 Jaffna, Sri Lanka</p>
+          <p class="text-sm text-gray-400">📞 +94 77 123 4567</p>
+          <p class="text-sm text-gray-400">✉️ support@degitelshop.com</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Copyright -->
+  <div class="bg-gray-800 text-center text-gray-400 py-3 text-sm">
+    © 2025 Vithusan Degitel Shopping. All rights reserved. Design by WEBbuilders.lk
+  </div>
+
+  <!-- Back to Top -->
+  <button onclick="scrollToTop()" class="fixed bottom-6 right-6 bg-indigo-600 text-white p-3 rounded-full shadow-lg" aria-label="Scroll to top">↑</button>
+
+  <!-- JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script>
+    // Scroll to Top
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Mobile Search Toggle
+    const searchToggle = document.getElementById('search-toggle');
+    const searchForm = document.getElementById('search-form');
+    searchToggle.addEventListener('click', () => {
+      searchForm.classList.toggle('active');
+    });
+
+    // Shop Link Scroll
+    document.getElementById('shop-link').addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.href = 'index.html#products';
+    });
+
+    // Contact Form Validation and Submission
+    const contactForm = document.getElementById('contact-form');
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let isValid = true;
+
+      // Reset errors
+      document.querySelectorAll('.error').forEach(input => input.classList.remove('error'));
+      document.querySelectorAll('.error-message').forEach(msg => msg.classList.add('hidden'));
+
+      // Validate Name
+      const name = document.getElementById('name');
+      if (!name.value.trim()) {
+        name.classList.add('error');
+        document.getElementById('name-error').classList.remove('hidden');
+        isValid = false;
+      }
+
+      // Validate Email
+      const email = document.getElementById('email');
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email.value.trim() || !emailRegex.test(email.value)) {
+        email.classList.add('error');
+        document.getElementById('email-error').classList.remove('hidden');
+        isValid = false;
+      }
+
+      // Validate Message
+      const message = document.getElementById('message');
+      if (!message.value.trim()) {
+        message.classList.add('error');
+        document.getElementById('message-error').classList.remove('hidden');
+        isValid = false;
+      }
+
+      if (isValid) {
+        const formData = {
+          name: name.value.trim(),
+          email: email.value.trim(),
+          message: message.value.trim()
+        };
+        console.log('Form Submitted:', formData);
+        alert('Thank you for your message! We will get back to you soon.');
+        contactForm.reset();
+      }
+    });
+  </script>
+</body>
+</html>
